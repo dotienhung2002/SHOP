@@ -1,0 +1,41 @@
+.slick-prev,
+.slick-next {
+  //   background-color: black;
+  top: 39%;
+  width: 30px;
+  height: 30px;
+  &::before,
+  &::after {
+    color: black;
+    font-size: 27px;
+  }
+}
+
+#product-detail {
+  .slick-dots {
+    // bottom: 100%;
+    gap: 30px;
+    margin: 15px;
+    top: 0%;
+    left: 0%;
+    text-align: unset;
+    display: flex !important;
+    flex-direction: column;
+    li {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+
+
+
+@media screen and (max-width:"600px") {
+  [data-aos^=fade][data-aos^=fade] {
+    opacity: 1 !important;
+  }  
+  [data-aos=fade-left] {
+    transform: translate3d(0,0,0) !important;
+}
+}
