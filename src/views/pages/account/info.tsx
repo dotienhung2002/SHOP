@@ -28,38 +28,32 @@ const Info = ({ classNames }: any) => {
       weigth: userData?.weight,
       gender: userData?.gender,
       // value="2012-3-23"
-      birthDay:"",
+      birthDay: "",
       id: userData?.id,
     },
   });
 
   const submit = async (values: any) => {
-
-
-    const customeData  = {
+    const customeData = {
       ...values,
-      birthDay:"13/02/2002"
-      ,
-      heigth:Number(values?.heigth),
-      weigth:Number(values?.weigth),
-    }
+      birthDay: "13/02/2002",
+      heigth: Number(values?.heigth),
+      weigth: Number(values?.weigth),
+    };
     console.log(customeData);
-    
-    
-    await update(customeData).then((res:any) => {
+
+    await update(customeData).then((res: any) => {
       // console.log(res?.error);
       // if (res?.error) {
       // toast.error("Cập nhật tài khoản thất bại");
-        
+
       // }
       // else{
-        toast.success("Cập nhật tài khoản thành công");
-        if (res?.data) {
-          localStorage.setItem('user_data',JSON.stringify(res?.data))
-          
-        }
+      toast.success("Cập nhật tài khoản thành công");
+      if (res?.data) {
+        localStorage.setItem("user_data", JSON.stringify(res?.data));
+      }
       // }
-      
     });
   };
   return (
@@ -193,7 +187,7 @@ const Info = ({ classNames }: any) => {
                 </div>
               </dd>
             </div>
-            <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            {/* <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <dt className="flex items-center text-sm font-medium text-gray-500">
                 Ngày sinh
               </dt>
@@ -203,12 +197,12 @@ const Info = ({ classNames }: any) => {
                     type="date"
                     {...register("birthDay")}
                     id="date"
-                    className=" rounded-xl border w-full border-[#e0e0e0] border-black bg-white py-2 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+                    className=" w-full rounded-xl border border-[#e0e0e0] border-black bg-white py-2 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
                   />
                 </div>
               </dd>
-            </div>
-            <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            </div> */}
+            {/* <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <dt className="flex items-center text-sm font-medium text-gray-500">
                 Chiều cao
               </dt>
@@ -242,10 +236,10 @@ const Info = ({ classNames }: any) => {
                   // )}
                 />
               </dd>
-            </div>
+            </div> */}
             <button
               type="submit"
-              className="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-black text-white py-3 px-8 text-base font-medium text-white  hover:opacity-70 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              className="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-black py-3 px-8 text-base font-medium text-white text-white  hover:opacity-70 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             >
               Cập nhật thông tin
             </button>
