@@ -13,6 +13,8 @@ import {
 import { Fragment, useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 interface PropsPayment {
   submitInfo: (data: any, selectedPayment: any) => void;
@@ -34,6 +36,11 @@ const plans = [
 ];
 
 export default function Payment(props: PropsPayment) {
+  const [modal, setModal] = useState(false);
+
+  const toggle = () => {
+    console.log("Modal")
+    setModal(!modal)};
   const [selectedProvince, setSelectedProvince] = useState<any>();
   const navigate = useNavigate();
 
@@ -750,9 +757,30 @@ border-2
               </div>
             </RadioGroup>
             <div className="mt-6">
-              <button className="m-auto flex items-center justify-center rounded-md border border-transparent bg-black px-6 py-3 text-base font-medium text-white text-white shadow-sm  hover:opacity-70">
+
+              <div>
+                {/* <Button color="danger" onClick={toggle}>
+                  Click Me
+                </Button> */}
+                <button className="m-auto flex items-center justify-center rounded-md border border-transparent bg-black px-6 py-3 text-base font-medium text-white text-white shadow-sm  hover:opacity-70"
+                        onClick={toggle}>
                 Thanh toán
               </button>
+                <Modal isOpen={modal} toggle={toggle}>
+                  <ModalHeader toggle={toggle}>Bạn có chắc muốn thanh toán?</ModalHeader>
+                  <ModalBody>
+                    Hãy đảm bảo thông tin của bạn là chính xác trước khi bấm xác nhận thanh toán đơn hàng
+                  </ModalBody>
+                  <ModalFooter>
+                    <Button color="primary" onClick={toggle} onSubmit={handleSubmit(onSubmit)}>
+                      Thanh toán
+                    </Button>{' '}
+                    <Button color="secondary" onClick={toggle}>
+                      Hủy
+                    </Button>
+                  </ModalFooter>
+                </Modal>
+              </div>
             </div>
             <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
               <p>
